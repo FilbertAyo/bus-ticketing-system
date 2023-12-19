@@ -1,0 +1,76 @@
+.add_bus{
+    position: relative;
+    background-color: gray;
+    width: 20%;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    float: right;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+}
+h7{
+    color: white;
+}
+
+ .bus_input{
+    gap: 10px;
+ }
+ .bus_input_btn{
+    background-color: gainsboro;
+    outline: none;
+    border: none;
+    width: 70%;
+    height: 40px;
+ }
+.bus_input_btn:focus{
+    background-color: white;
+}
+.bus_input button{
+    background-color: gainsboro;
+    padding: 0 8px;
+    height: 40px ;
+    border: none;
+    outline: none;
+    color: gray;
+    margin-left: 5px;
+    border-radius: 10px;
+}
+.bus_input button:active{
+    background-color: white ;
+}
+
+.add_details{
+    border: none;
+    outline: none;
+  }
+
+.hidden{
+    display: none;
+}
+
+
+/* each edit button  */
+.ok{
+   border-radius: 10px;
+
+   
+}
+.ok td input{
+    border:none !important;;
+    outline: none;
+    padding: 5px;
+    width: 100%;
+    border-radius: 10px;
+  
+}
+.ok td input:focus{
+    background-color: white;
+}
+.edit_ok{
+   
+    margin-left: 20%;
+}

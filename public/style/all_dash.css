@@ -1,0 +1,296 @@
+
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+.logout{
+  color: white;
+  background-color: gray;
+  padding: 15px;
+  outline: none;
+  text-decoration: none;
+}
+.logout:hover{
+  color: white;
+}
+.logout:active{
+  background-color: gainsboro;
+}
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  body {
+    font-size: 17px;
+  }
+
+  .feather {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+  }
+
+    /* Sidebar*/
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+        /* Behind the navbar */
+        padding: 48px 0 0;
+        /* Height of navbar */
+        box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+      }
+
+      @media (max-width: 767.98px) {
+        .sidebar {
+          top: 5rem;
+        }
+      }
+
+      .itemdash{
+        margin-top: 20px;
+      }
+      .sidebar-sticky {
+        position: relative;
+        top: 0;
+        height: calc(100vh - 48px);
+        padding-top: .5rem;
+        overflow-x: hidden;
+        overflow-y: auto;
+        /* Scrollable contents if viewport is shorter than content. */
+      }
+
+      .sidebar .nav-link {
+        font-weight: 500;
+        color: rgb(163, 158, 158);
+      font-size: 18px;
+      margin-top: 5px;
+      }
+
+      .sidebar .nav-link .feather {
+        margin-right: 4px;
+
+      color: #727272;
+    }
+
+    .sidebar .nav-link.active {
+      color: rgb(91, 89, 89);
+    }
+
+    .nav-link:hover{
+      color: gainsboro;
+    }
+
+    .sidebar .nav-link:hover .feather,
+    .sidebar .nav-link.active .feather {
+      color: inherit;
+    }
+
+    .sidebar-heading {
+      font-size: .75rem;
+      text-transform: uppercase;
+    }
+
+
+    /*Navbar*/
+    .navbar{
+      margin-bottom: 10px;
+      z-index: 104;
+    }
+
+    .navbar-brand {
+     padding: 10px;
+     width: 16.6%;
+     border: none;
+     outline: none;
+        font-size: 20px;
+        background-color:gray;
+        box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+      }
+
+
+
+      .head_dash{
+        color: gray;
+      }
+h2{
+  color: gainsboro;
+}
+      .admin_name{
+        color: gray;
+      }
+
+
+.dash_contents{
+ display:flex;
+  gap: 30px;
+  margin-bottom: 30px;
+
+}
+  .admin_card{
+    background-color:white;
+    width: 220px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
+    float: left;
+  }
+
+  #admin_name{
+    font-size: 20px;
+  }
+.card_name{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  .card_name p{
+    background-color: gray;
+    width: fit-content;
+   height: fit-content;
+   padding: 5px;
+   display: flex;
+   justify-content:center;
+   color: white;
+  }
+
+  .view p{
+    color: gray;
+   width: fit-content;
+   margin-left: 90px;
+   cursor: pointer;
+  }
+.other_adm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.name_color{
+  color: gainsboro;
+}
+
+.other p{
+  color: gray ;
+}
+
+.d-flex p button{
+  border: none;
+  background-color: gray;
+  padding: 10px;
+  color: white ;
+  outline: none;
+}
+.d-flex p button:active{
+  background-color: gainsboro;
+  outline: none;
+  border: none;
+}
+.table-sm{
+  background-color: gainsboro;
+}
+
+.bus_details_table{
+  width: 100%;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.route_table{
+  width: 100%;
+}
+.bus_table{
+  width: 100vh;
+}
+th {
+  border: 1px gray solid;
+  color: gray;
+}
+
+td{
+  border: 1px gray solid;
+  color: gray;
+}
+.act{
+  display: flex;
+  gap: 10px;
+}
+.allact{
+  width: 170px;
+}
+.acti{
+ width: 70px;
+ padding: 5px 0;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  border-radius: 20px;
+  color: white;
+  border: none;
+  outline: none;
+}
+.edit{
+  background-color: gray;
+  cursor: pointer;
+}
+.delete{
+  background-color: red;
+  cursor: pointer;
+}
+.customerID{
+  width: 160px;
+}
+
+
+.seat_search input{
+  background-color: gainsboro;
+  border: none;
+  height: 45px;
+  width: 25%;
+  outline: none;
+  font-size: 20px;
+  transition: background-color 0.3s;
+  text-transform: uppercase;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+}
+.seat_search input:focus{
+  background-color: white;
+}
+.seat_search button{
+  background-color:gray;
+  border-radius: 10px;
+  height: 45px;
+  padding: 0 8px;
+  outline: none;
+  border: none;
+  margin-left: 15px;
+  color: white;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+}
+.seat_search button:active{
+  background-color: gainsboro;
+}
+
+
+/* form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label, input {
+  display: block;
+  margin-bottom: 10px;
+} */

@@ -26,7 +26,8 @@ Route::get('/admin', [AdminController::class, 'admin']);
 Route::post('/add_user', [userController::class, 'addUser']);
 Route::post('/buses', [BusController::class, 'saveBuses']);
 Route::post('/routes', [RouteController::class, 'route']);
-
+Route::post('/customers', [CustomController::class, 'customer']);
+Route::post('/bookings', [BookController::class,'booking']);
 
 
 

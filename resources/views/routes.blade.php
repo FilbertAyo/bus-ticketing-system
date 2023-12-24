@@ -142,7 +142,7 @@
                   <th>Route_ID</th>
                   <th>From_city</th>
                   <th>To_city</th>
-                  <th>Bus_Number</th>
+                  <th>Bus_No</th>
                   <th>Depart_date</th>
                   <th>Depart_time</th>
                   <th class="allact">Actions</th>
@@ -150,18 +150,22 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="route_container" style="display: none;">
-                  <td>RT-2346</td>
-                  <td>Dar</td>
-                  <td>Morogoro</td>
-                  <td>BDG-501</td>
-                  <td>2022-02-12</td>
-                  <td>06:00</td>
+
+                @foreach ($route as $route)
+
+                <tr class="route_container">
+                  <td>{{ $route->id }}</td>
+                  <td>{{ $route->from_city }}</td>
+                  <td>{{ $route->to_city }}</td>
+                  <td>{{ $route->bus_number }}</td>
+                  <td>{{ $route->departure_date }}</td>
+                  <td>{{ $route->departure_time }}</td>
                   <td class="actions"><div class="act">
                     <div class="acti edit">edit</div>
                      <div class="acti delete">delete</div>
                     </div> </td>
                   </tr>
+                  @endforeach
 
                       </tbody>
                     </table>

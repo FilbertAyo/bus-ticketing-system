@@ -100,14 +100,15 @@
          <p><button class="add_details">Add Customer details +</button></p>
       </div>
 
-      <form class="customers-form hidden">
+      <form class="customers-form hidden" method="post" action="{{ url('/customers') }}">
+        @csrf
         <div class="form-group">
             <label for="name">First Name:</label>
-            <input type="text" id="firstname" name="name" required>
+            <input type="text" id="firstname" name="fname" required>
         </div>
         <div class="form-group">
-          <label for="name">Second Name:</label>
-          <input type="text" id="secondname" name="name" required>
+          <label for="name">Last Name:</label>
+          <input type="text" id="secondname" name="lname" required>
       </div>
 
         <div class="form-group">
@@ -118,7 +119,7 @@
 
         <div class="form-group form-butt">
             <button class="close_customer">Close</button>
-            <button class="add_customer">Add</button>
+            <button type="submit">Add</button>
         </div>
     </form>
 
@@ -137,16 +138,18 @@
                     </thead>
                     <tbody>
 
-                      <tr class="customer_container" style="display: none;">
-                        <td>CUS-233</td>
-                        <td>Bruno mwakipesile</td>
-                        <td>0723464234</td>
+               @foreach ($customer as $customer)
+
+                      <tr class="customer_container">
+                        <td>{{ $customer->id }}</td>
+                        <td>{{ $customer->first_cname }} {{ $customer->last_cname }}</td>
+                        <td>{{ $customer->contacts }}</td>
                         <td class="actions"><div class="act">
                           <div class="acti edit">edit</div>
                            <div class="acti delete">delete</div>
                           </div> </td>
                         </tr>
-
+                        @endforeach
                       </tbody>
                     </table>
                   </div>

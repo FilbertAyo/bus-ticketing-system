@@ -3,15 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Bus;
 
 class BusController extends Controller
 {
-    public function buses(){
 
-
-        return view("buses");
-    }
 
     public function saveBuses(request $Request){
         $data = New Bus();
@@ -20,7 +17,13 @@ class BusController extends Controller
 
         $data->save();
         return redirect()->back();
-
-
     }
+
+    public function buses(){
+        $buses = Bus::all();
+
+             return view("buses",[
+               "buses"=> $buses
+             ]);
+         }
 }

@@ -22,7 +22,7 @@ class userController extends Controller
         return redirect()->back();
 
         // $data->password = Hash::make($Request->password);
-
-
     }
+
+   
 }

@@ -120,19 +120,20 @@
         </div>
 
         <div class="dash_contents">
-          <div class="admin_card other_adm" style="display: none;">
 
+            @foreach ($user as $user)
+          <div class="admin_card other_adm">
             <div class="adm_img">
              <img src="/picture/admin.png" alt="">
             </div>
             <div class="other_name">
-              <h3 id="admin_name">Rajabu Omary</h3>
+              <h3 id="admin_name">{{ $user->first_name }} {{ $user->last_name }}</h3>
             </div>
             <div class="other">
-              <p id="admin_contact">contacts</p>
+              <p id="admin_contact">{{ $user->phone_number }}</p>
             </div>
           </div>
-
+          @endforeach
         </div>
 
       </main>

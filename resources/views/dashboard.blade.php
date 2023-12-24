@@ -145,6 +145,9 @@
             <p>View More &rArr;</p>
           </div>
         </div>
+    </div>
+
+        <div class="dash_contents">
 
         <div class="admin_card">
           <div class="card_name">
@@ -158,9 +161,7 @@
           </div>
         </div>
 
-      </div>
 
-        <div class="dash_contents">
 
           <div class="admin_card">
             <div class="card_name">

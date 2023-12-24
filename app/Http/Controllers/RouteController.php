@@ -8,7 +8,10 @@ use App\Models\Route;
 class RouteController extends Controller
 {
     public function routes(){
-        return view('routes');
+        $route = Route::all();
+        return view('routes',[
+            'route'=> $route
+        ]);
     }
 
     public function route(request $Request){

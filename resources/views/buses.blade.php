@@ -122,22 +122,21 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr class="bus_container" style="display:none;">
-                          <td>1</td>
-                          <td>BDG-501</td>
+
+                        @foreach ($buses as $bus)
+
+                        <tr class="bus_container">
+                          <td>{{ $bus->id }}</td>
+                          <td>{{ $bus->bus_number }}</td>
                           <td class="actions"><div class="act">
                             <button class="acti edit">edit</button>
                              <button class="acti delete">delete</button>
                             </div>
                            </td>
                         </tr>
-                        <tr class="bus_container ok hidden" >
-                      <td>1</td>
-                          <td><input type="text" placeholder="edit bus number"></td>
-                          <td class="actions"><div class="act">
-                            <div class="acti edit edit_ok">OK</div>
-                           </td>
-                        </tr>
+                        @endforeach
+
+
 
                       </tbody>
                     </table>

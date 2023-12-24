@@ -99,10 +99,12 @@
       </div>
 
       <div class="form_container hidden">
-      <form class="route-bus">
+
+      <form class="route-bus" method="post" action="{{ url('/bookings') }}">
+        @csrf
         <div class="form-group">
             <label for="name"> Name:</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="fullName" required>
         </div>
 
         <div class="form-group">
@@ -127,7 +129,7 @@
 
     <div class="seats">
       <input type="text" id="busNumber" name="busNumber" required>
-      <button class="view_seats">View seats</button>
+      {{-- <a class="view_seats">View seats</a> --}}
     </div>
 
 </div>
@@ -282,7 +284,7 @@
 
         <div class="form-group form-butt">
             <button class="close_route">Close</button>
-            <button class="add_route">BOOK</button>
+            <button type="submit">BOOK</button>
         </div>
     </form>
 

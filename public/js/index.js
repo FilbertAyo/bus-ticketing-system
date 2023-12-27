@@ -49,13 +49,15 @@ const forget =  document.querySelector(".forget_pass");
 const selectWindow = document.querySelector('.loginSelect');
 const emailSel = document.querySelector('.email-sel');
 const select = document.querySelector('.select');
-const code = document.querySelector('.select');
+const code = document.querySelector('.code');
+const subCode = document.querySelector('.sub_code');
+const submitCode = document.querySelector('.s_code');
 
 
+// open modal
 const open_login = function(){
     modal_login.classList.remove("hidden");
     overlay.classList.remove("hidden");
-
 };
 
 const close_login = function(){
@@ -63,19 +65,30 @@ const close_login = function(){
   overlay.classList.add('hidden');
   selectWindow.classList.add('hidden');
   emailSel.classList.add('hidden');
+  subCode.classList.add('hidden');
 };
+
+
+
 
 for (let i = 0; i < openLogin.length; i++) {
     openLogin[i].addEventListener("click", open_login);
 
 forget.addEventListener('click',function(){
+    event.preventDefault();
 selectWindow.classList.remove('hidden');
 modal_login.classList.add('hidden');
 
   select.addEventListener('click', function(){
-    selectWindow.classList.add('hidden');
+event.preventDefault();
     emailSel.classList.remove('hidden');
+    selectWindow.classList.add('hidden');
 
+code.addEventListener('click',function(){
+    event.preventDefault();
+    subCode.classList.remove('hidden');
+    emailSel.classList.add('hidden');
+})
 
   })
 

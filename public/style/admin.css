@@ -41,6 +41,10 @@ form button:active{
     outline: none;
 }
 
+input:user-invalid{
+    border: 3px solid red;
+}
+
 .overlay{
     position: fixed;
   top: 0;

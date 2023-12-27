@@ -6,15 +6,20 @@
 const containerbus = document.querySelector('.bus_container');
 const add_gui = document.querySelector(".add_bus");
 const edit_gui = document.querySelector('.ok');
-
+const overlay = document.querySelector('.overlay');
 
 
 
 document.querySelector(".add_details").addEventListener("click",function(){
 
   add_gui.classList.remove('hidden');
+  overlay.classList.remove('hidden');
 });
 
+overlay.addEventListener('click',function(){
+    add_gui.classList.add('hidden');
+    overlay.classList.add('hidden');
+})
 
 
 // function saveInput(){

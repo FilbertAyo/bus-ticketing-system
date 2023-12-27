@@ -80,7 +80,7 @@
 </div>
 
 <!-- forget modal  -->
-<div class="login_sec loginSelect hidden">
+<div class="login_code loginSelect hidden">
 
   <div class="select-box">
       <div class="form-value">
@@ -109,7 +109,7 @@
 </div>
 
 <!-- select modal  -->
-<div class="login_sec email-sel hidden">
+<div class="login_code email-sel hidden">
 
   <div class="select-box">
       <div class="form-value">
@@ -124,13 +124,37 @@
               </div>
 
 
-              <button class="btn_login code">Get code</button>
+              <button class="btn_login code">Get_code</button>
 
           </form>
       </div>
   </div>
 
 </div>
+
+{{-- code modal --}}
+<div class="login_code hidden sub_code">
+
+    <div class="select-box">
+        <div class="form-value">
+            <form action="" class="form_login select_form">
+                <h1 style="font-size: 30px; color: gray;">Passoword recovery</h1>
+                <div class="options">
+                   Enter the code.
+                </div>
+
+                <div class="opti">
+                <input type="number" placeholder="  xxx-xxx" required>
+                </div>
+
+
+                <button class="btn_login s_code">submit</button>
+
+            </form>
+        </div>
+    </div>
+
+  </div>
 
     </section>
     <!--    section2-->

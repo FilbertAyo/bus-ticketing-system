@@ -10,6 +10,7 @@ body{
     background-color: gray;
 }
 
+
 a{
     text-decoration: none;
 }
@@ -29,7 +30,7 @@ outline: none;
 cursor: pointer;
 }
 .login_modal{
-    padding: 15px 30px;
+    padding: 10px 25px;
     background: gray;
     color: white;
     font-size: 15px;
@@ -424,16 +425,13 @@ text-decoration: underline;
   }
 
 
-.hidden{
-    display: none;
-}
 
 .active{
     color: black;
 }
 
-.select-box {
-    position: relative;
+.select-box, .login_code {
+    position: absolute;
     width: 500px;
     height: 300px;
     background-color: gainsboro;
@@ -472,4 +470,6 @@ text-decoration: underline;
     background-color: white;
 }
 
-
+.hidden{
+    display: none;
+}

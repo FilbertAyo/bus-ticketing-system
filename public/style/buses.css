@@ -1,7 +1,7 @@
 .add_bus{
     position: relative;
     background-color: gray;
-    width: 20%;
+    width: 25%;
     height: 120px;
     display: flex;
     flex-direction: column;
@@ -11,13 +11,14 @@
     float: right;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
     border-radius: 10px;
+    z-index:10001;
 }
 h7{
     color: white;
 }
 
  .bus_input{
-    gap: 10px;
+    gap: 1:
  }
  .bus_input_btn{
     background-color: gainsboro;
@@ -25,6 +26,7 @@ h7{
     border: none;
     width: 70%;
     height: 40px;
+    margin-left: 10px;
  }
 .bus_input_btn:focus{
     background-color: white;
@@ -57,7 +59,7 @@ h7{
 .ok{
    border-radius: 10px;
 
-   
+
 }
 .ok td input{
     border:none !important;;
@@ -65,12 +67,24 @@ h7{
     padding: 5px;
     width: 100%;
     border-radius: 10px;
-  
+
 }
 .ok td input:focus{
     background-color: white;
 }
 .edit_ok{
-   
+
     margin-left: 20%;
+}
+
+.overlay{
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65); /* Semi-transparent black overlay */
+  opacity: 100; /* Initially hidden */
+  z-index: 1000; /* Adjust this value as needed to control layering */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }

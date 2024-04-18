@@ -1,37 +1,43 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\DashController;
 use App\Http\Controllers\BusController;
-use App\Http\Controllers\BookController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\CustomController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RouteController;
-use App\Http\Controllers\SeatController;
-use App\Http\Controllers\userController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
 
 
+Route::resource('buses',BusController::class);
+Route::resource('routes',RouteController::class);
+Route::resource('customers',CustomerController::class);
+
+Route::get('/bookings', function () {
+    return view('layout.bookings');
+});
 
 
-Route::get('/', [PostController::class, 'home']);
-Route::get('/dashboard', [DashController::class, 'dashboard']);
-Route::get('/buses', [BusController::class, 'buses']);
-Route::get('/routes', [RouteController::class, 'routes']);
-Route::get('/customers', [CustomController::class, 'customers']);
-Route::get('/bookings', [BookController::class, 'books']);
-Route::get('/seats', [SeatController::class,'seat']);
-Route::get('/admin', [AdminController::class, 'admin']);
-
-Route::post('/add_user', [userController::class, 'addUser']);
-Route::post('/buses', [BusController::class, 'saveBuses']);
-Route::post('/routes', [RouteController::class, 'route']);
-Route::post('/customers', [CustomController::class, 'customer']);
-Route::post('/bookings', [BookController::class,'booking']);
+Route::get('/seats', function () {
+    return view('layout.seats');
+});
 
 
-
-
-
-
+Route::get('/admin', function () {
+    return view('layout.new_admin');
+});
 

@@ -7,46 +7,25 @@
 
 body{
     font-family: sans-serif;
-    background-color: gray;
 }
 
-
-a{
-    text-decoration: none;
-}
-li{
-    list-style: none;
-}
 
 .flex_space{
     display: flex;
     justify-content: space-between;
 }
-button{
-border: none;
-background: none;
-transition: 0.5s;
-outline: none;
-cursor: pointer;
-}
-.login_modal{
-    padding: 10px 25px;
-    background: gray;
-    color: white;
-    font-size: 15px;
-    margin-left: 20px;
 
-}
 
 /* header */
 
-header{
-    width: 100%;
-
-height: 7vh;
+.content{
+width: 100%;
+height: 10vh;
 line-height: 7vh;
-padding: 0 20px;
+padding: 10px 20px;
 background: gainsboro;
+position: fixed;
+
 }
 .logo{
     display: inline-block;
@@ -64,90 +43,7 @@ header ul li{
     text-transform: uppercase;
 }
 
-.btn:hover{
-    background: none;
-}
-header ul li a{
-    margin: 0 10px;
-    transition: 0.5s;
-    color:gray;
-    cursor: pointer;
-    font-size: 15px;
-}
 
-header ul li a:hover{
-    color:black;
-}
-
-.login_modal:hover{
-    scale: 1.05;
-}
-.login_modal:active{
-    background-color: gainsboro;
-}
-
-header button{
-    padding: 13px 40px;
-}
-header .navlinks span{
-    display: none;
-}
-/*
-@media only screen and (max-width: 768px){
-
-    header ul{
-        position: absolute;
-        top: 10.2vh;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-
-        overflow: hidden;
-        transition: max-height 0.5s;
-        text-align: center;
-
-    }
-    header ul li{
-        display: block;
-        background-color: rgb(51, 51, 61);
-    }
-    header ul li:hover{
-        background: gray;
-    }
-    header ul li a{
-        color:white;
-        background: none;
-
-    }
-
-    header .navlinks span{
-        color: black;
-        display: block;
-        cursor: pointer;
-        font-size: 25px;
-        line-height: 10vh;
-    }
-    .btn{
-        background: none;
-    }
-    .btn:hover{
-        background: none;
-        scale: 1.1;
-    }
-    header{
-        background: lightseagreen;
-    }
-    .service h1{
-        font-size: 40px;
-    }
-
-    .section2{
-        display: flex;
-        margin: 0;
-    }
-
-
-    } */
 
 
 
@@ -162,7 +58,11 @@ header .navlinks span{
     background-attachment: fixed;
 }
 .service{
-margin-bottom: 60px;
+
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
 
 }
 
@@ -227,10 +127,7 @@ align-items: center;
 .card_icon{
    margin-bottom: 15px;
 }
-.details:hover{
-    scale: 1.3;
-    transition: 0.5s;
-}
+
 .num{
     margin-bottom: 15px;
     color: gray;
@@ -282,194 +179,9 @@ align-items: center;
 }
 
 
-/* modal login css  */
-
-.login_sec {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position:absolute;
-    top: 15%;
-}
-
-.form-box {
-    position: relative;
-    width: 500px;
-    height: 500px;
-    background-color: gainsboro;
-    backdrop-filter: blur(1px);
-    border-radius: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1001;
-}
-
-.form_login h1 {
-    font-size: 60px;
-    color:gray;
-    text-align: center;
-}
-
-.inputbox {
-    position: relative;
-    margin: 30px 0;
-    width: 400px;
-    border-bottom: 1px solid white;
-}
-
-.inputbox label {
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    color:white;
-    font-size: .9cm;
-    pointer-events: none;
-    transition: .5s;
-}
-
-input:focus~label,
-input:valid~label {
-    top: -5px;
-}
-
-.inputbox input {
-    width: 100%;
-    height: 50px;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: .5cm;
-    padding: 0 35px 0 5px;
-    color: gray;
-}
-
-
-.forget {
-    margin: -15px 0 15px;
-    font-size: .55cm;
-    color: white;
-    display: flex;
-    justify-content: center;
-}
-.forget label{
-    font-size: 15px;
-}
-
-.forget label input {
-    margin-right: 3px;
-
-}
-
-.forget label a {
-    color: gray;
-    text-decoration: none;
-
-}
-
-.forget label a:hover {
-text-decoration: underline;
-}
-
-.btn_login {
-    padding: 10px 40%;
-    border-radius: 40px;
-    color: white;
-    background:gray;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: 600;
-    margin-top: 13px;
-    display: flex;
-    justify-content: center;
-}
-.btn_login:active{
-    background-color: white;
-}
-
-.register {
-    color: white;
-    text-align: center;
-    margin: 10px 0 10px;
-
-}
-.register p{
-    font-size: 15px;
-}
-.register p a {
-    text-decoration: none;
-    color: gray;
-}
-
-.register p a:hover {
-    text-decoration: underline;
-}
-.overlay{
-    position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.65); /* Semi-transparent black overlay */
-  opacity: 100; /* Initially hidden */
-  z-index: 1000; /* Adjust this value as needed to control layering */
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-.overlay.show {
-    opacity: 1;
-    visibility: visible;
-  }
 
 
 
-.active{
-    color: black;
-}
 
-.select-box, .login_code {
-    position: absolute;
-    width: 500px;
-    height: 300px;
-    background-color: gainsboro;
-    backdrop-filter: blur(1px);
-    border-radius: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1001;
-}
-.options{
-    font-size: 20px;
-    color: white;
-    margin-bottom: 15px;
-}
-.option{
-    margin-bottom: 10px;
-}
-.option label{
-    font-size:20px ;
-    color: white;
-}
-.opti{
-    margin-bottom: 15px;
-}
-.opti input{
-    border: none;
-    outline: none;
-    background-color: ghostwhite ;
-    height: 35px;
-    font-size: 20px;
-    color: gray;
-    width: 100%;
-}
-.option input:focus{
-    background-color: white;
-}
 
-.hidden{
-    display: none;
-}
+

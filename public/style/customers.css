@@ -1,4 +1,4 @@
-form{
+/* form{
     background-color: gray;
     padding: 20px;
     width: 20%;
@@ -9,7 +9,7 @@ form{
     flex-direction: column;
     float: right;
 
-}
+} */
 .add_details{
     border: none;
     outline: none;

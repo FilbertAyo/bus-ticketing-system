@@ -2,29 +2,77 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Bus;
 use App\Models\Route;
+use Illuminate\Http\Request;
 
 class RouteController extends Controller
 {
-    public function routes(){
-        $route = Route::all();
-        return view('routes',[
-            'route'=> $route
-        ]);
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $routes = Route::orderBy('created_at','DESC')->get();
+        $busNumber = Bus::all();
+
+        return view('layout.routes',compact('routes','busNumber'));
     }
 
-    public function route(request $Request){
-        $data = New Route();
-        $data->from_city = $Request->fromCity;
-        $data->to_city = $Request->toCity;
-        $data->bus_number = $Request->busNumber;
-        $data->departure_date = $Request->departureDate;
-        $data->departure_time = $Request->departureTime;
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('layout.routes');
+    }
 
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        // $busNumber = Bus::all();
 
-        $data->save();
-        return redirect()->back();
+        Route::create($request->all());
+        return redirect()->route('routes.index')->with('success',"Route added successfully");
+
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        $routes= Route::findOrFail($id);
+
+        $routes->delete();
+
+        return redirect()->route('routes.index')->with('success',"Route deleted successfully");
 
     }
 }

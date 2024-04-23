@@ -4,19 +4,49 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Bus Bookings</title>
 
            {{-- added  --}}
            <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/dashboard/">
 
+
         {{-- added  --}}
-        <link rel="stylesheet" href="/style/index.css">
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&
         family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300
         ;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300&family
         =Victor+Mono:wght@100&display=swap" rel="stylesheet">
+
+        <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/dashboard/">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+          integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+          crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+          integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+          crossorigin="anonymous"></script>
+
+      {{-- other --}}
+      <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+      <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+      <!-- endinject -->
+      <!-- Plugin css for this page -->
+      <link rel="stylesheet" href="assets/vendors/jvectormap/jquery-jvectormap.css">
+      <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
+      <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.carousel.min.css">
+      <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+      <!-- End plugin css for this page -->
+      <!-- inject:css -->
+      <!-- endinject -->
+      <!-- Layout styles -->
+      <link rel="stylesheet" href="assets/css/style.css">
+      <!-- End layout styles -->
+      <link rel="shortcut icon" href="assets/images/favicon.png" />
+
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -28,239 +58,202 @@
 
         <!-- Styles -->
        <link rel="stylesheet" href="/style/s.css">
+
+       {{-- welcome --}}
+       <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+       <script src="https://cdn.jsdeliver.net/npm/qrcode-generator/umd/qrcode.min.js"></script>
+       <!-- Additional CSS Files -->
+       <link rel="stylesheet" href="asst/css/fontawesome.css">
+       {{-- <link rel="stylesheet" href="asst/css/templatemo-scholar.css"> --}}
+       <link rel="stylesheet" href="asst/css/owl.css">
+       <link rel="stylesheet" href="asst/css/animate.css">
+       <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+       <style>
+        .intro{
+            margin-top: 20%;
+        }
+       .intro h2{
+        color: white;
+        font-size: 50px;
+       }
+       .intro ul li{
+        color: white;
+        font-size: 25px;
+       }
+
+
+       </style>
+
     </head>
-    <body class="font-sans antialiased dark:bg-white dark:text-white/50">
+    <body>
 
 
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+            <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+              <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+            </div>
+            <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
 
-                    <header class="content flex_space">
+              <ul class="navbar-nav w-100">
+                <li class="nav-item w-100">
+                  <div class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                    Transport
+
+                  </div>
+                </li>
+              </ul>
+              <ul class="navbar-nav navbar-nav-right">
+
+                <li class="nav-item dropdown d-none d-lg-block">
+
+                    @if (Route::has('login'))
+
+                    @auth
+
+                        <a
+                            href="{{ url('/dashboard') }}"
+                            class="nav-link btn btn-primary create-new-button" id="createbuttonDropdown" aria-expanded="false"
+                        >
+                           Admistrator Login
+                        </a>
+
+                    @else
+
+                        <a
+                            href="{{ url('/login') }}"
+                            class="nav-link btn btn-primary create-new-button" id="createbuttonDropdown" aria-expanded="false"
+                        >
+                            Admistrator Login
+                        </a>
 
 
-                            <div class="logo">
-                              <a href="/workplace/index.html"><h6>Filbert bookings</h6></a>
-                            </div>
-                            <div class="navlinks">
-                                <ul id="menulist">
+                    @endauth
+            @endif
+                </a>
+
+                </li>
+              </ul>
+              <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
 
                 @if (Route::has('login'))
 
-                    @auth
-                    <li>
-                        <a
-                            href="{{ url('/dashboard') }}"
-                            class="btn btn-primary"
-                        >
-                            Login
-                        </a>
-                    </li>
-                    @else
-                    <li>
-                        <a
-                            href="{{ url('login') }}"
-                            class="btn btn-primary"
-                        >
-                            Login
-                        </a>
-                    </li>
+                @auth
 
-                        @if (Route::has('register'))
-                        {{-- <li>
-                            <a
-                                href="{{ route('register') }}"
-                                class="adm"
-                            >
-                                Register
-                            </a>
-                        </li> --}}
-                        @endif
-                    @endauth
+                    <a
+                        href="{{ url('/dashboard') }}"
+                        class=""
+                    >
+                       Login
+                    </a>
 
-            @endif
-                                </ul>
+                @else
+
+                    <a
+                        href="{{ url('/login') }}"
+                        class=""
+                    >
+                        Login
+                    </a>
+
+
+                @endauth
+        @endif
+              </button>
+            </div>
+          </nav>
+
+
+        <div class="main-panel">
+            <div class="content-wrapper">
+
+
+                <div class="row">
+                    <div class="col-md-6 grid-margin stretch-card">
+
+                            <div class="intro">
+                                <ul>
+                              <h2>Safe and Fast Transport</h2>
+                            </ul>
+                           <ul>
+                            <li><span class="mdi mdi-check"></span>Fast and Safe travel</li>
+                            <li><span class="mdi mdi-check"></span>Luxury comfort</li>
+                           </ul>
+
+<ul>
+                           @if (Route::has('login'))
+
+                           @auth
+                               <a
+                                   href="{{ url('/dashboard') }}"
+                                   class="btn btn-primary"
+                               >
+                                  Admistrator Login
+                               </a>
+
+                           @else
+
+                               <a
+                                   href="{{ url('/login') }}"
+                                   class="btn btn-primary "
+                               >
+                                   Admistrator Login
+                               </a>
+
+
+                           @endauth
+                   @endif
+                </ul>
 
                             </div>
 
 
-                    </header>
+
+
+                    </div>
+                    <div class="col-md-6 grid-margin stretch-card">
+                        <img src="asst/images/23.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+          </div>
 
 
 
 
-                            <section class="section1" id="section1">
-
-                                <div class="service">
-                                    <h1> <span>BUS  Ticketing System</span> </h1>
-                                    {{-- <div class="serv"><button class="login_modal" id="login_modal">ADMISTRATOR LOGIN</button></div> --}}
-                                    <div class="">
-                                        @if (Route::has('login'))
-
-                                        @auth
-
-                                            <a
-                                                href="{{ url('/dashboard') }}"
-                                                class="btn btn-primary"
-                                            >
-                                               Admistrator Login
-                                            </a>
-
-                                        @else
-
-                                            <a
-                                                href="{{ url('login') }}"
-                                                class="adm"
-                                            >
-                                                Admistrator Login
-                                            </a>
 
 
-                                        @endauth
 
-                                @endif
-                                    </div>
-                                    <div class="serv"><p><a href="#bus_details">View bus details</a></p></div>
-                                    </div>
+                      <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js"
+                      integrity="sha384-DBjhmceckmzwrnMMrjI7BvG2FmRuxQVaTfFYHgfnrdfqMhxKt445b7j3KBQLolRl"
+                      crossorigin="anonymous"></script>
 
-                                <!-- admistrator login -->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js"
+                      integrity="sha384-EbSscX4STvYAC/DxHse8z5gEDaNiKAIGW+EpfzYTfQrgIlHywXXrM9SUIZ0BlyfF"
+                      crossorigin="anonymous"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+                      integrity="sha384-i+dHPTzZw7YVZOx9lbH5l6lP74sLRtMtwN2XjVqjf3uAGAREAF4LMIUDTWEVs4LI"
+                      crossorigin="anonymous"></script>
 
-
-                                  {{-- <div class="form-box hidden">
-
-
-    <form method="POST" action="{{ route('login') }}" class="form_login">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-
-                                  </div>
-
-                                  <div class="overlay hidden"></div>
-
- --}}
-
-
-                                    </section>
-
-
-                                    <section class="section2" id="bus_details">
-                                        <div class="sec2header">
-                                          <h4>Booking Details</h4>
-
-                                        </div>
-                                        <div class="card">
-                                          <!--   cards details-->
-                                        <div class="details">
-                                          <div class="card_icon route_icon">
-                                        <img src="/picture/location.png" alt="">
-                                          </div>
-                                          <div class="num route_number">
-                                        <p>14</p>
-                                          </div>
-                                          <div class="lab routeP">
-                                            ROUTES
-                                          </div>
-                                        </div>
-
-                                        <div class="details">
-                                          <div class="card_icon bus_icon">
-                                        <img src="/picture/bus.png" alt="">
-                                          </div>
-                                          <div class="num bus_numbers">
-                                        <p>22</p>
-                                          </div>
-                                          <div class="lab busP">
-                                                BUSES
-                                          </div>
-                                        </div>
-
-                                        <div class="details">
-                                          <div class="card_icon rates_icon">
-                                        <img src="/picture/ratings.png" alt="">
-                                          </div>
-                                          <div class="num rates_number">
-                                        <p>10+</p>
-                                          </div>
-                                          <div class="lab rateP">
-                                         RATINGS
-                                          </div>
-                                        </div>
-
-                                        <div class="details">
-                                          <div class="card_icon bookings_icon">
-                                        <img src="/picture/bookings.png" alt="">
-                                          </div>
-                                          <div class="num bookings_number">
-                                        <p>71</p>
-                                          </div>
-                                          <div class="lab bookingsP">
-                                            BOOKINGS
-                                          </div>
-                                        </div>
-
-                                        </div>
-                                            </section>
-
-
-                                            <section class="footer" id="contact_footer">
-
-
-                                                <div class="contact">
-                                                <div class="headcont">
-                                                  CONTACT US:
-                                                </div>
-                                                <div class="descrip">
-                                                  <p>We are always here to help you with any
-                                                  questions or concerns, please feel free to
-                                                  contact us at the following email address
-                                                  and we will get back to you</p>
-                                                  <p>email: <a href="">filbertayo09@gmail.com</a></p>
-                                                  <p>contacts : +255 7552 37692</p>
-                                                </div>
-                                                </div>
-                                                <div class="contact_image">
-                                                  <img src="/picture/contact.png" alt="">
-                                                </div>
-
-
-                                                    </section>
-
-                                                    <script src="/js/index.js"> </script>
+                      <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+                      <!-- endinject -->
+                      <!-- Plugin js for this page -->
+                      <script src="assets/vendors/chart.js/Chart.min.js"></script>
+                      <script src="assets/vendors/progressbar.js/progressbar.min.js"></script>
+                      <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+                      <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+                      <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+                      <!-- End plugin js for this page -->
+                      <!-- inject:js -->
+                      <script src="assets/js/off-canvas.js"></script>
+                      <script src="assets/js/hoverable-collapse.js"></script>
+                      <script src="assets/js/misc.js"></script>
+                      <script src="assets/js/settings.js"></script>
+                      <script src="assets/js/todolist.js"></script>
+                      <!-- endinject -->
+                      <!-- Custom js for this page -->
+                      <script src="assets/js/dashboard.js"></script>
+                      <!-- End custom js for this page -->
     </body>
 </html>

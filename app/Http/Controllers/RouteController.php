@@ -13,8 +13,16 @@ class RouteController extends Controller
      */
     public function index()
     {
-        $routes = Route::orderBy('created_at','DESC')->get();
+        // $routes = Route::orderBy('created_at','DESC')->get();
+        // $busNumber = Bus::all();
+
+        $routes = Route::select('*', 'buses.bus_number')
+        ->join('buses', 'buses.id', '=', 'routes.busNo')
+        ->orderBy('routes.created_at', 'DESC')
+        ->get();
+
         $busNumber = Bus::all();
+
 
         return view('layout.routes',compact('routes','busNumber'));
     }
@@ -33,6 +41,7 @@ class RouteController extends Controller
     public function store(Request $request)
     {
         // $busNumber = Bus::all();
+
 
         Route::create($request->all());
         return redirect()->route('routes.index')->with('success',"Route added successfully");

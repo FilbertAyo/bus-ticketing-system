@@ -1,167 +1,200 @@
 <x-app-layout>
 
-    <div class="container-fluid">
-        <div class="row">
-          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-            <div class="flex justify-center" style="font-size: 25px;">MAINO</div>
-            <div class="position-sticky pt-3">
-            <img src="/picture/baccc.jpeg" alt="">
 
-              <ul class="nav flex-column">
-                <li class="nav-item itemdash">
-                  <a class="nav-link active" aria-current="page" href="/dashboard>
-                    <span data-feather="home"></span>
-                    Dashboard
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/buses">
-                    <span data-feather="file"></span>
-                   Buses
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/routes">
-                    <span data-feather="shopping-cart"></span>
-                    Routes
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/customers">
-                    <span data-feather="users"></span>
-                    Customers
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/workplace/bookings.html">
-                    <span data-feather="bar-chart-2"></span>
-                    Bookings
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/seats">
-                    <span data-feather="layers"></span>
-                    Seats
-                  </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin">
-                      <span data-feather="file"></span>
-                      Add new admin +
-                    </a>
-                  </li>
-              </ul>
+
+
+        <div class="main-panel">
+          <div class="content-wrapper">
+
+            <div class="row">
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="row">
+                              <div class="col-9">
+                                  <div class="d-flex align-items-center align-self-start">
+                                      <h3 class="mb-0">221</h3>
+                                      <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
+                                  </div>
+                              </div>
+                              <div class="col-3">
+                                  <div class="icon icon-box-success ">
+                                      <span class="mdi mdi-bookmark icon-item"></span>
+                                  </div>
+                              </div>
+                          </div>
+                          <h6 class="text-muted font-weight-normal">Total bookings</h6>
+                      </div>
+                  </div>
+              </div>
+
+            <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-9">
+                                <div class="d-flex align-items-center align-self-start">
+                                    <h3 class="mb-0">12</h3>
+                                    {{-- <p class="text-success ml-2 mb-0 font-weight-medium">+11%</p> --}}
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="icon icon-box-success">
+                                    <span class="mdi mdi-bus icon-item"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <h6 class="text-muted font-weight-normal">Total buses</h6>
+                    </div>
+                </div>
             </div>
-          </nav>
-
-          <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 " style="margin-top: 80px;">
-            <div
-              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-              <h1 class="head_dash">Dashboard</h1>
+            <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-9">
+                                <div class="d-flex align-items-center align-self-start">
+                                    <h3 class="mb-0">4</h3>
+                                    {{-- <p class="text-danger ml-2 mb-0 font-weight-medium">-2.4%</p> --}}
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="icon icon-box-success">
+                                    <span class="mdi mdi-road icon-item"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <h6 class="text-muted font-weight-normal">Routes</h6>
+                    </div>
+                </div>
             </div>
-
-    <div class="dash_contents flex column">
-        <div class="col-bg-3 col-md-3 admin_card">
-              <div class="card_name">
-                <p>BOOKINGS</p>
-              </div>
-              <div class="total">
-                <p>Total bookings</p><p>10</p>
-              </div>
-              <div class="view">
-                <p> More &rArr;</p>
-              </div>
-            </div>
-
-            <div class="col-bg-3 col-md-3 admin_card">
-              <div class="card_name">
-                <p>BUSES</p>
-              </div>
-              <div class="total">
-                <p>Total buses</p><p>9</p>
-              </div>
-              <div class="view">
-                <p> More &rArr;</p>
-              </div>
-            </div>
-
-            <div class="col-bg-3 col-md-3 admin_card">
-              <div class="card_name">
-                <p>ROUTES</p>
-              </div>
-              <div class="total">
-                <p>Total routes</p><p>21</p>
-              </div>
-              <div class="view">
-                <p> More &rArr;</p>
-              </div>
+            <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-9">
+                                <div class="d-flex align-items-center align-self-start">
+                                    <h3 class="mb-0">$31.53</h3>
+                                    <p class="text-success ml-2 mb-0 font-weight-medium">+5%</p>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="icon icon-box-success ">
+                                    <span class="mdi mdi-account-multiple-outline icon-item"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <h6 class="text-muted font-weight-normal">Total Customers</h6>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-bg-3 col-md-3 admin_card">
-              <div class="card_name">
-                <p>SEATS</p>
-              </div>
-              <div class="total">
-                <p>Total seats</p><p>278</p>
-              </div>
-              <div class="view">
-                <p> More &rArr;</p>
-              </div>
+            <div class="row">
+                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-9">
+                                    <div class="d-flex align-items-center align-self-start">
+                                        <h3 class="mb-0">4,960,000/=</h3>
+                                        <p class="text-success ml-2 mb-0 font-weight-medium">+3%</p>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="icon icon-box-success ">
+                                        <span class="mdi mdi-coin icon-item"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h6 class="text-muted font-weight-normal">Amount generated</h6>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-9">
+                                    <div class="d-flex align-items-center align-self-start">
+                                        <h3 class="mb-0">7</h3>
+                                        {{-- <p class="text-success ml-2 mb-0 font-weight-medium">+3%</p> --}}
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="icon icon-box-success ">
+                                        <span class="mdi mdi-account-card-details icon-item"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h6 class="text-muted font-weight-normal">Total Admin</h6>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
 
-            <div class="dash_contents flex">
-
-                <div class="col-bg-3 col-md-3 admin_card">
-              <div class="card_name">
-                <p>CUSTOMERS</p>
-              </div>
-              <div class="total">
-                <p>Total customers</p><p>232</p>
-              </div>
-              <div class="view">
-                <p> More &rArr;</p>
-              </div>
-            </div>
-
-
-
-            <div class="col-bg-3 col-md-3 admin_card">
-                <div class="card_name">
-                  <p>ADMINS</p>
-                </div>
-                <div class="total">
-                  <p>Total Admin</p><p>3</p>
-                </div>
-                <div class="view">
-                  <p>More &rArr;</p>
-                </div>
-              </div>
-
-
-            </div>
-
-             <div
-              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-              <h1 class="head_dash">Other Admin</h1>
-            </div>
-
-            <div class="dash_contents">
-                <div class="col-bg-3 col-md-3 other_adm">
-
-              <div class="adm_img">
-               <img src="/picture/admin.png" alt="">
-              </div>
-              <div class="other_name">
-                <h3 id="admin_name">Rajabu Omary</h3>
-              </div>
-              <div class="other">
-                <p>Other admin</p>
-              </div>
-            </div>
 
           </div>
+        </div>
 
-          </main>
+{{--
+      <nav class="navbar p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+        </div>
+        <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+      <span class="mdi mdi-menu"></span>
+            </button>
+
+            <ul class="navbar-nav w-100">
+                <li class="nav-item w-100">
+                    <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                        <input type="text" class="form-control" placeholder="Search products">
+                    </form>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav navbar-nav-right">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                        <div class="navbar-profile">
+                            <img class="img-xs rounded-circle" src="assets/images/faces/face15.jpg" alt="">
+                            <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ Auth::user()->name }}</p>
+                            <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+                        <h6 class="p-3 mb-0">Profile</h6>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item preview-item" href = "{{ route('profile.edit') }}">
+                            <div class="preview-thumbnail">
+                                <div class="preview-icon bg-dark rounded-circle">
+                                    <i class="mdi mdi-settings text-success"></i>
+                                </div>
+                            </div>
+                            <div class="preview-item-content">
+                                <p class="preview-subject mb-1">Profile</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+
+                        <div class="dropdown-divider"></div>
+                        <p class="p-3 mb-0 text-center">Advanced settings</p>
+                    </div>
+                </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+      <span class="mdi mdi-format-line-spacing"></span>
+    </button>
+        </div>
+    </nav> --}}
+
+
+
 
 </x-app-layout>

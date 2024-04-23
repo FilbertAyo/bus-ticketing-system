@@ -11,6 +11,20 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+
+
+    public function redirect()
+    {
+       $userType = Auth::user()->userType;
+       if($userType=='1'){
+        return redirect()->route('admin.index');
+       }elseif($userType=='0'){
+        return view('dashboard');
+       }else{
+        redirect()->back()->with('status',"You're not authorized");
+       }
+    }
+
     /**
      * Display the user's profile form.
      */

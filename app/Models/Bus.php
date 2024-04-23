@@ -9,7 +9,14 @@ class Bus extends Model
 {
     use HasFactory;
     protected $fillable=[
+        'user_id',
         'bus_number',
-
     ];
+
+    public function routes()
+    {
+        return $this->hasMany(Route::class);
+    }
+
+
 }

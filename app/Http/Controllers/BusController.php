@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BusController extends Controller
 {
@@ -12,6 +13,8 @@ class BusController extends Controller
      */
     public function index()
     {
+
+
         $buses = Bus::orderBy('created_at','DESC')->get();
 
         return view('layout.buses',compact('buses'));
@@ -30,7 +33,15 @@ class BusController extends Controller
      */
     public function store(Request $request)
     {
-        Bus::create($request->all());
+
+           // Retrieve the authenticated user's ID
+    $userId = Auth::id();
+
+    // Merge the user_id into the request data
+    $requestData = array_merge($request->all(), ['user_id' => $userId]);
+
+
+        Bus::create($requestData);
         return redirect()->route('buses.index')->with('success',"Bus added successfully");
 
     }

@@ -15,7 +15,8 @@ class Route extends Model
         // 'bus_id',
         'busNo',
         'departure_date',
-        'departure_time'
+        'departure_time',
+        'amount'
     ];
 
     public function bus()

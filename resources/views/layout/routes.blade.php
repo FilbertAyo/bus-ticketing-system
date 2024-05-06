@@ -71,6 +71,11 @@
                       <input type="time" id="departureTime" class="form-control c" name="departure_time" required>
                   </div>
 
+                  <div class="form-group mt-3">
+                    <label for="city">Amount</label>
+                    <input type="text" id="amount" class="form-control c" name="amount" placeholder="" required>
+                </div>
+
                   <div class="form-group mt-3 flex justify-end">
                     <button type="submit" class="btn btn-primary">Add</button>
                   </div>
@@ -100,6 +105,7 @@
                     <th>Bus_No</th>
                     <th>Depart_date</th>
                     <th>Depart_time</th>
+                    <th>Amount</th>
                     <th>Actions</th>
 
                 </tr>
@@ -121,6 +127,7 @@
                   <td>{{ $route->bus_number }}</td>
                   <td>{{ $route->departure_date }}</td>
                   <td>{{ $route->departure_time }}</td>
+                  <td>{{ $route->amount }}</td>
                   <td>
                     <form action="{{ route('routes.destroy',$route->id) }}" method="POST" class="btn height-auto p-0" type= "button"  onsubmit="return confirm('Delete')">
                         @csrf
@@ -134,7 +141,7 @@
                   @endforeach
                   @else
                   <tr>
-                    <td class="text-center" colspan="5">Route not found</td>
+                    <td class="text-center" colspan="9">Route not found</td>
                 </tr>
             @endif
 

@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Customer;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
-class CustomerController extends Controller
+class BookingController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $customers = Customer::orderBy('created_at','DESC')->get();
-
-        return view('layout.customers',compact('customers'));
-
+        $bookings = Booking::all();
+        return view('layout.bookings', compact('bookings'));
     }
 
     /**
@@ -23,7 +21,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('layout.customers');
+        //
     }
 
     /**
@@ -31,8 +29,8 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        Customer::create($request->all());
-        return redirect()->route('customers.index')->with('success',"Customer added successfully");
+        Booking::create($request->all());
+        return redirect()->back()->with('success',"New booking added successfully");
 
     }
 
@@ -65,12 +63,11 @@ class CustomerController extends Controller
      */
     public function destroy(string $id)
     {
-        $customers= Customer::findOrFail($id);
+        $bookings= Booking::findOrFail($id);
 
-        $customers->delete();
+        $bookings->delete();
 
-        return redirect()->route('customers.index')->with('success',"Customer deleted successfully");
+        return redirect()->route('booking.index')->with('success',"Booking deleted successfully");
 
     }
-
 }

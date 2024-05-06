@@ -20,6 +20,7 @@ return new class extends Migration
             // $table->foreignId('bus_id')->constrained()->onDelete('cascade');
             $table->string('departure_date');
             $table->string('departure_time');
+            $table->string('amount');
 
             $table->timestamps();
         });

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\BusController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProfileController;
@@ -29,15 +30,10 @@ Route::resource('buses',BusController::class);
 Route::resource('routes',RouteController::class);
 Route::resource('customers',CustomerController::class);
 Route::resource('admin',AdminController::class);
+Route::resource('booking',BookingController::class);
 
-Route::get('/bookings', function () {
-    return view('layout.bookings');
-});
+Route::get('customer/{customerName}','CustomerController@getCustomerDetails');
 
-
-Route::get('/seats', function () {
-    return view('layout.seats');
-});
 
 
 

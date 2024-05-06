@@ -62,7 +62,7 @@
 
                 <nav class="sidebar sidebar-offcanvas" id="sidebar">
                     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-                      <a class="sidebar-brand brand-logo" href="index.html">TRANSPORT</a>
+                      <a class="sidebar-brand brand-logo" href="{{ url('dashboard') }}">TRANSPORT</a>
                       <a class="sidebar-brand brand-logo-mini" href="index.html">T</a>
                     </div>
                     <ul class="nav">
@@ -103,19 +103,11 @@
                         </a>
                       </li>
                       <li class="nav-item menu-items">
-                        <a class="nav-link" href="{{ url('/bookings') }}">
+                        <a class="nav-link" href="{{ route('booking.index') }}">
                           <span class="menu-icon">
                             <i class="mdi mdi-contacts"></i>
                           </span>
                           <span class="menu-title">Bookings</span>
-                        </a>
-                      </li>
-                      <li class="nav-item menu-items">
-                        <a class="nav-link" href="{{ url('/seats') }}">
-                          <span class="menu-icon">
-                            <i class="mdi mdi-contacts"></i>
-                          </span>
-                          <span class="menu-title">Seats</span>
                         </a>
                       </li>
 
@@ -140,20 +132,11 @@
 
                         <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
 
-                            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                            <div class="navbar-toggler navbar-toggler align-self-center mt-5" type="button" data-toggle="minimize">
                                 <span class="mdi mdi-menu"></span>
-                            </button>
+                            </div>
 
-                            <ul class="navbar-nav w-100">
-                                <li class="nav-item w-100">
-                                    <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                                        <input type="text" class="form-control" placeholder="Search products">
-                                    </form>
-                                </li>
-                            </ul>
-
-
-                                <!-- Settings Dropdown -->
+                            <!-- Settings Dropdown -->
                                 <div class="navbar-nav navbar-nav-right">
                                     <x-dropdown align="right" width="48">
                                         <x-slot name="trigger">
@@ -199,162 +182,6 @@
                                 </div>
 
 
-                        <!-- Responsive Navigation Menu -->
-                        <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-                            <div class="pt-2 pb-3 space-y-1">
-                                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                                    {{ __('Dashboard') }}
-                                </x-responsive-nav-link>
-                            </div>
-
-                            <!-- Responsive Settings Options -->
-                            <div class="pt-4 pb-1 border-t border-gray-200">
-                                <div class="px-4">
-                                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-                                </div>
-
-                                <div class="mt-3 space-y-1">
-                                    <x-responsive-nav-link :href="route('profile.edit')">
-                                        {{ __('Profile') }}
-                                    </x-responsive-nav-link>
-
-                                    <!-- Authentication -->
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-
-                                        <x-responsive-nav-link :href="route('logout')"
-                                                onclick="event.preventDefault();
-                                                            this.closest('form').submit();">
-                                            {{ __('Log Out') }}
-                                        </x-responsive-nav-link>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-{{--
-                        <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-                            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
-                        </div>
-                        <!-- Primary Navigation Menu -->
-
-                        <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-
-                                    <!-- Logo -->
-                                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-                                        <span class="mdi mdi-menu"></span>
-                                    </button>
-
-                                    <!-- Navigation Links -->
-                                    <ul class="navbar-nav w-100">
-                                        <li class="nav-item w-100">
-                                            <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                                                <input type="text" class="form-control" placeholder="Search products">
-                                            </form>
-                                        </li>
-                                    </ul>
-
-
-
-                                <!-- Settings Dropdown -->
-                                <ul class="navbar-nav navbar-nav-right">
-                                    <li class="nav-item dropdown">
-
-                                        <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
-                                            <div class="navbar-profile">
-                                                <img class="img-xs rounded-circle" src="assets/images/faces/face15.jpg" alt="">
-                                                <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ Auth::user()->name }}</p>
-                                                <i class="mdi mdi-menu-down d-none d-sm-block"></i>
-                                            </div>
-                                        </a>
-
-                                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
-
-
-
-
-                                            <a class="dropdown-item preview-item" href = "{{ route('profile.edit') }}">
-                                            <div class="preview-thumbnail">
-                                                <div class="preview-icon bg-dark rounded-circle">
-                                                    <i class="mdi mdi-account text-success"></i>
-                                                </div>
-                                            </div>
-                                            <div class="preview-item-content">
-                                                <p class="preview-subject mb-1">Profile</p>
-                                            </div>
-                                        </a>
-
-                                        <div class="dropdown-divider"></div>
-                                            <!-- Authentication -->
-                                            <form method="POST" action="{{ route('logout') }}">
-                                                @csrf
-
-                                                <a href="route('logout')"
-                                                        onclick="event.preventDefault();
-                                                                    this.closest('form').submit();"  class="dropdown-item preview-item" >
-
-                                                      <div class="preview-thumbnail">
-                                                        <div class="preview-icon bg-dark rounded-circle">
-                                                            <i class="mdi mdi-logout text-danger"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="preview-item-content">
-                                                        <p class="preview-subject mb-1">Log out</p>
-                                                    </div>
-                                                </a>
-                                            </form>
-
-
-                                        </div>
-                                    </li>
-                                </ul>
-
-                                </div>
-
-                                <!-- Hamburger -->
-                                <div class="-me-2 flex items-center sm:hidden">
-                                    <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                                            <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                                            <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                        </svg>
-                                    </button>
-                                </div>
-
-
-                        <!-- Responsive Navigation Menu -->
-                        <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-                            <div class="pt-2 pb-3 space-y-1">
-                                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                                    {{ __('Dashboard') }}
-                                </x-responsive-nav-link>
-                            </div>
-
-                            <!-- Responsive Settings Options -->
-                            <div class="pt-4 pb-1 border-t border-gray-200">
-                                <div class="px-4">
-                                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-                                </div>
-
-                                <div class="mt-3 space-y-1">
-                                    <x-responsive-nav-link :href="route('profile.edit')">
-                                        {{ __('Profile') }}
-                                    </x-responsive-nav-link>
-
-                                    <!-- Authentication -->
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-
-                                        <x-responsive-nav-link :href="route('logout')"
-                                                onclick="event.preventDefault();
-                                                            this.closest('form').submit();">
-                                            {{ __('Log Out') }}
-                                        </x-responsive-nav-link>
-                                    </form>
-                                </div>
-                            </div>
-                        </div> --}}
                     </nav>
 
 

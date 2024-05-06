@@ -22,21 +22,21 @@
     crossorigin="anonymous"></script>
 
 {{-- other --}}
-<link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
-<link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+<link rel="stylesheet" href="{{ asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css') }}">
 <!-- endinject -->
 <!-- Plugin css for this page -->
-<link rel="stylesheet" href="assets/vendors/jvectormap/jquery-jvectormap.css">
-<link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
-<link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.carousel.min.css">
-<link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+<link rel="stylesheet" href="{{ asset('assets/vendors/jvectormap/jquery-jvectormap.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel-2/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel-2/owl.theme.default.min.css') }}">
 <!-- End plugin css for this page -->
 <!-- inject:css -->
 <!-- endinject -->
 <!-- Layout styles -->
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 <!-- End layout styles -->
-<link rel="shortcut icon" href="assets/images/favicon.png" />
+<link rel="shortcut icon" href="{{ asset('assets/images/favicon.png"') }} />
 
 
         <!-- Fonts -->
@@ -89,18 +89,9 @@
 
                         <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
 
-                            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                            <div class="navbar-toggler navbar-toggler align-self-center mt-5" type="button" data-toggle="minimize">
                                 <span class="mdi mdi-menu"></span>
-                            </button>
-
-                            <ul class="navbar-nav w-100">
-                                <li class="nav-item w-100">
-                                    <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                                        <input type="text" class="form-control" placeholder="Search products">
-                                    </form>
-                                </li>
-                            </ul>
-
+                            </div>
 
                                 <!-- Settings Dropdown -->
                                 <div class="navbar-nav navbar-nav-right">
@@ -191,11 +182,6 @@
 
              {{-- page content  --}}
 
-
-
-
-
-
              <div class="main-panel">
                 <div class="content-wrapper">
 
@@ -237,9 +223,7 @@
                                         <div class="d-flex py-4">
                                             <div class="preview-list w-100">
                                                 <div class="preview-item p-0">
-                                                    <div class="preview-thumbnail">
-                                                        <img src="assets/images/faces/face12.jpg" class="rounded-circle" alt="">
-                                                    </div>
+
                                                     <div class="preview-item-content d-flex flex-grow">
                                                         <div class="flex-grow">
                                                             <div class="d-flex d-md-block d-xl-flex justify-content-between">
@@ -285,24 +269,6 @@
 
 
 
-
-
-                     {{-- @foreach ($user as $u)
-                  <div class="admin_card other_adm">
-                    <div class="adm_img">
-                     <img src="/picture/admin.png" alt="">
-                    </div>
-                    <div class="other_name">
-                      <h3 id="admin_name">{{ $u->name }} </h3>
-                    </div>
-                    <div class="other">
-                      <p id="admin_contact">{{ $u->email }}</p>
-                    </div>
-                  </div>
-                  @endforeach --}}
-
-
-
         </div>
 
 
@@ -326,26 +292,26 @@
 
 
 
-                    <form method="POST" action="{{ route('reg.store') }}"  >
+                    <form method="POST" action="{{ route('reg.store') }}"  enctype="multipart/form-data">
                         @csrf
 
                         <!-- Name -->
                         <div>
                             <label for="name">Admin name</label>
-                            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                            <x-text-input id="name" class="block mt-1 w-full c" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                         </div>
 
                         <!-- Email Address -->
                         <div class="mt-4">
                             <label for="email">Email</label>
-                            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                            <x-text-input id="email" class="block mt-1 w-full c" type="email" name="email" :value="old('email')" required autocomplete="username" />
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
 
                         <div class="mt-4">
                           <label for="contact">Phone number</label>
-                          <input type="text" name="phone_number" class="form-control">
+                          <input type="text" name="phone_number" class="form-control c">
                       </div>
 
                         <!-- Password -->

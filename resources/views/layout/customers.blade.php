@@ -41,13 +41,9 @@
                                         <form method="post" action="{{ route('customers.index') }}">
                                             @csrf
                                             <div class="form-group">
-                                                <label for="name">First Name:</label>
-                                                <input type="text" id="firstname" class="form-control c"  name="fname" placeholder="eg. Salmin" required>
+                                                <label for="name">Passanger name:</label>
+                                                <input type="text" id="name" class="form-control c"  name="name" placeholder="eg. Salmin" required>
                                             </div>
-                                            <div class="form-group mt-3">
-                                              <label for="name">Last Name:</label>
-                                              <input type="text" id="secondname" class="form-control c"  name="lname" placeholder="eg. Mdeme" required>
-                                          </div>
 
                                             <div class="form-group mt-3">
                                                 <label for="contacts">Contacts:</label>
@@ -85,7 +81,7 @@
 
                                                <tr>
                                                  <td>{{ $loop->iteration }}</td>
-                                                 <td>{{ $customer->fname }} {{ $customer->lname }}</td>
+                                                 <td>{{ $customer->name }}</td>
                                                  <td>{{ $customer->contacts }}</td>
                                                  <td>
                                                      <form action="{{ route('customers.destroy',$customer->id) }}" method="POST" class="btn height-auto p-0" type= "button"  onsubmit="return confirm('Delete')">

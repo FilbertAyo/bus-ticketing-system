@@ -40,16 +40,16 @@
                                     </div>
                                     <div class="modal-body">
 
-                                        <form class="route-bus" method="post" action="{{ url('/bookings') }}">
+                                        <form class="route-bus" method="post" action="{{ route('booking.store') }}">
                                             @csrf
                                             <div class="form-group">
                                                 <label for="name"> Name:</label>
-                                                <input type="text" id="name" name="fullName"  class="form-control c" required>
+                                                <input type="text" id="customer_name" name="fullName"  class="form-control c" required>
                                             </div>
 
                                             <div class="form-group mt-3">
                                               <label for="number"> Contact:</label>
-                                              <input type="text" id="contact" name="contact"  class="form-control c" required>
+                                              <input type="text" id="contact" name="contact"  class="form-control c">
                                           </div>
 
 
@@ -69,10 +69,14 @@
                                         <input type="text" id="busNumber" name="busNumber"  class="form-control c" required>
                                     </div>
 
-                                        <div class="form-group mt-3 flex gap-4" >
+                                        <div class="form-group mt-3" >
                                           <label for="date"> Departure:</label>
-                                          <input type="date" id="departureDate" class="form-control c"  name="date" required>
-                                          <input type="time" id="departureTime" class="form-control c" name="time" required>
+
+                                          <div class="flex gap-4">
+                                            <input type="date" id="departureDate" class="form-control c"  name="departureDate" required>
+                                          <input type="time" id="departureTime" class="form-control c" name="departureTime" required>
+                                          </div>
+
                                       </div>
 
                                       <div class="flex justify-end mt-3">
@@ -88,9 +92,7 @@
                                           <div class="modal-content">
                                             <div class="modal-header">
                                               <h5 class="modal-title" id="exampleModalLabel">Add Bus Number</h5>
-                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                              </button>
+
                                             </div>
                                             <div class="modal-body">
 
@@ -224,7 +226,7 @@
 
                                                 <div class="form-group mt-3">
                                                     <label for="seaatNumber"> Seat Number:</label>
-                                                    <input type="text" id="seatNumber" name="seatNumber"  class="form-control c" required>
+                                                    <input type="text" id="seatNumber" name="seat"  class="form-control c" required>
                                                 </div>
 
                                                 <div class="form-group mt-3">
@@ -243,12 +245,9 @@
 
                                           </div>
                                         </div>
-                                      </div>
 
 
                                         </form>
-
-
 
 
                                     </div>
@@ -281,18 +280,34 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>1</td>
-                                            <td>Moses Bunango</td>
-                                            <td>074593434</td>
-                                            <td>JHG876</td>
-                                            <td>DAR-MBEYA</td>
-                                            <td>23</td>
-                                            <td>45000</td>
-                                            <td>20/3/2342</td>
-                                            <td >45:35</td>
-                                            <td> <span class="badge badge-outline-success">edit</span> </td>
-                                            </tr>
+                                            @if($bookings->count()>0)
+                                            @foreach($bookings as $booking)
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $booking->fullName }}</td>
+                                            <td>{{ $booking->contact }}</td>
+                                            <td>{{ $booking->busNumber }}</td>
+                                            <td>{{ $booking->source }}-{{ $booking->destination }}</td>
+                                            <td>{{ $booking->seat }}</td>
+                                            <td>{{ $booking->amount }}</td>
+                                            <td>{{ $booking->departureDate }}:{{ $booking->departureTime }}</td>
+                                            <td >{{ $booking->created_at }}</td>
+                                            <td>
 
+                                                <form action="{{ route('booking.destroy',$booking->id) }}" method="POST" class="btn height-auto p-0" type= "button"  onsubmit="return confirm('Delete')">
+                                                    @csrf
+                                                    @method('DELETE')
+
+                                                                        <button class="badge badge-outline-danger">Delete</button>
+                                                                    </form>
+                                                                    <span class="badge badge-outline-success">Receipt</span>
+                                                                </td>
+                                            </tr>
+                                            @endforeach
+                                            @else
+                                            <tr>
+                                              <td class="text-center" colspan="10">Bookings not found</td>
+                                          </tr>
+                                      @endif
 
                                               </tbody>
                                             </table>
@@ -364,6 +379,19 @@
 
 
     </style>
+
+    <script>
+
+document.getElementById('customer_name').addEventListener('blur',function(){
+    var customerName = this.value;
+    fetch('/customer'+ customerName)
+    .then(response=>response.json())
+    .then(data=>{
+        document.getElementById('contact').value = data.contact;
+    });
+});
+
+    </script>
 
 
 </x-app-layout>

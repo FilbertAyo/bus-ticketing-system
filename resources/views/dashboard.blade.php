@@ -89,7 +89,7 @@
                 </div>
             </div>
 
-            <div class="row">
+
                 <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
@@ -132,7 +132,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+           
 
         </div>
 

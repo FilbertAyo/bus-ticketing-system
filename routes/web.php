@@ -32,6 +32,13 @@ Route::resource('customers',CustomerController::class);
 Route::resource('admin',AdminController::class);
 Route::resource('booking',BookingController::class);
 
+
+Route::get('/customer/contact', [CustomerController::class, 'getContact']);
+
+Route::get('/routes/destinations', [RouteController::class, 'getDestinations']);
+Route::get('/routes/details', [RouteController::class, 'getRouteDetails']);
+
+
 Route::get('customer/{customerName}','CustomerController@getCustomerDetails');
 
 

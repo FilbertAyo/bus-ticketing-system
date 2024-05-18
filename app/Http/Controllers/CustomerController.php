@@ -73,4 +73,19 @@ class CustomerController extends Controller
 
     }
 
+    public function getContact(Request $request)
+    {
+        $name = $request->query('name');
+        $customer = Customer::where('name', $name)->first();
+
+
+        return response()->json(['contacts' => $customer->contacts]);
+
+        // if ($customer) {
+        //     return response()->json(['contacts' => $customer->contacts]);
+        // } else {
+        //     return response()->json(['contacts' => '']);
+        // }
+    }
+
 }

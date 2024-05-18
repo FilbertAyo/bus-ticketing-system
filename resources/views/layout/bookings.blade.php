@@ -44,24 +44,22 @@
                                             @csrf
                                             <div class="form-group">
                                                 <label for="name"> Name:</label>
-                                                <input type="text" id="customer_name" name="fullName"  class="form-control c" required>
+                                                <input type="text" id="customer_name" name="fullName"  class="form-control c" oninput="fetchContact(this.value)" required>
                                             </div>
 
                                             <div class="form-group mt-3">
                                               <label for="number"> Contact:</label>
-                                              <input type="text" id="contact" name="contact"  class="form-control c">
+                                              <input type="text" id="contact" name="contact"  class="form-control c" readonly>
                                           </div>
-
-
 
                                           <div class="form-group mt-3">
                                             <label for="source"> Source:</label>
-                                            <input type="text" id="source" name="source"  class="form-control c" required>
+                                            <input type="text" id="source" name="source"  class="form-control c" oninput="fetchDestinations(this.value)" required>
                                         </div>
 
                                         <div class="form-group mt-3">
                                           <label for="sedtination"> Destination:</label>
-                                          <input type="text" id="destination" name="destination"  class="form-control c" required>
+                                          <input type="text" id="destination" name="destination"  class="form-control c" oninput="fetchRouteDetails()" required>
                                       </div>
 
                                       <div class="form-group mt-3">
@@ -324,12 +322,68 @@
     </div>
 
 
+
+
+
+    <script>
+        function fetchDestinations(from_city) {
+            if (from_city.length > 0) {
+                fetch(`/routes/destinations?source=${from_city}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const destinationInput = document.getElementById('destination');
+                        destinationInput.value = ''; // Clear the current value
+                        const dataList = document.createElement('datalist');
+                        dataList.id = 'destinations';
+                        data.forEach(destination => {
+                            const option = document.createElement('option');
+                            option.value = destination;
+                            dataList.appendChild(option);
+                        });
+                        destinationInput.setAttribute('list', 'destinations');
+                        document.body.appendChild(dataList);
+                    })
+                    .catch(error => console.error('Error fetching destinations:', error));
+            }
+        }
+
+        function fetchRouteDetails() {
+            const source = document.getElementById('source').value;
+            const destination = document.getElementById('destination').value;
+
+            if (from_city.length > 0 && to_city.length > 0) {
+                fetch(`/routes/details?source=${from_city}&destination=${to_city}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('busNumber').value = data.busNo;
+                        document.getElementById('departureDate').value = data.departure_date;
+                        document.getElementById('departureTime').value = data.departure_time;
+                    })
+                    .catch(error => console.error('Error fetching route details:', error));
+            }
+        }
+    </script>
+
+
+    <script>
+        function fetchContact(name) {
+            if (name.length > 0) {
+                fetch(`/customer/contact?name=${name}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('contact').value = data.contacts;
+                    })
+                    .catch(error => console.error('Error fetching contact:', error));
+            } else {
+                document.getElementById('contact').value = '';
+            }
+        }
+    </script>
+
+
+
+
     <style>
-
-
-
-
-
 
 .row {
     display: flex;

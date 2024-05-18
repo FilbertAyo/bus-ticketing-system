@@ -84,4 +84,32 @@ class RouteController extends Controller
         return redirect()->route('routes.index')->with('success',"Route deleted successfully");
 
     }
+
+    public function getDestinations(Request $request)
+    {
+        $source = $request->query('source');
+        $destinations = Route::where('from_city', $source)->pluck('to_city');
+        return response()->json($destinations);
+    }
+
+    public function getRouteDetails(Request $request)
+    {
+        $source = $request->query('source');
+        $destination = $request->query('destination');
+        $route = Route::where('from_city', $source)->where('to_city', $destination)->first();
+
+        if ($route) {
+            return response()->json([
+                'busNo' => $route->busNo,
+                'departure_date' => $route->departure_date,
+                'departure_time' => $route->departure_time,
+            ]);
+        } else {
+            return response()->json([
+                'busNo' => '',
+                'departure_date' => '',
+                'departure_time' => '',
+            ]);
+        }
+    }
 }
